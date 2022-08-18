@@ -1,9 +1,11 @@
 require('@nomicfoundation/hardhat-toolbox');
+require('@nomiclabs/hardhat-etherscan');
+
 require('dotenv').config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
-const { RINKEBY_RPC_URL, PRIVATE_KEY } = process.env;
+const { RINKEBY_RPC_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
 module.exports = {
   defaultNetwork: 'hardhat',
@@ -15,4 +17,7 @@ module.exports = {
     },
   },
   solidity: '0.8.8',
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY,
+  },
 };
